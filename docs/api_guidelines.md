@@ -1,0 +1,4 @@
+- All new API endpoints should return JSON.
+- Use RESTful naming conventions (e.g., GET /events, POST /fetch-external-events).
+- Document your routes with purpose, parameters, and example responses.
+- Reuse shared utilities like logger and api_client where possible.
