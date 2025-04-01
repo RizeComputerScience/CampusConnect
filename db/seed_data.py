@@ -1,4 +1,5 @@
 import sqlite3
+import os
 
 DB_PATH = "db/campusconnect.db"
 
@@ -32,7 +33,7 @@ c.execute('''CREATE TABLE IF NOT EXISTS external_events (
 )''')
 
 # Users
-c.execute("INSERT INTO users (name, preferences) VALUES (?, ?)", ("Alice", "music,tech"))
+c.execute("INSERT INTO events (title, location, date) VALUES (?, ?, ?)", ("Music Night", "Student Center", "2025-04-05"))
 
 # Internal events
 c.execute("INSERT INTO events (title, location, date) VALUES (?, ?, ?)", ("Hackathon", "Library", "2025-04-01"))

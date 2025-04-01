@@ -11,8 +11,9 @@
     </header>
     <main>
         <ul>
-            <li>Hackathon - April 1st - Library</li>
-            <li>Music Night - April 5th - Student Center</li>
+            {% for title, location, date in internal_events %}
+                <li><strong>{{ title }}</strong> — {{ date }} @ {{ location }}<br>
+            {% endfor %}
         </ul>
         <!-- Added in for final project -->
         <h2>Scraped Campus Events</h2>
@@ -23,7 +24,7 @@
             {% endfor %}
         </ul>
         <!-- End of additions -->
-        <a href="/dashboard">Back to Dashboard</a>
+        <a href="/api">Back to API Data</a>
     </main>
 </body>
 </html>
