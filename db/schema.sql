@@ -14,14 +14,4 @@ CREATE TABLE events (
     date TEXT
 );
 
--- Added to starter file
--- External scraped events table
-DROP TABLE IF EXISTS external_events;
-
-CREATE TABLE external_events (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    date TEXT,
-    location TEXT,
-    description TEXT
-);
+-- Create external scraped events table here

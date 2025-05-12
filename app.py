@@ -17,24 +17,5 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(api_bp)
 app.register_blueprint(event_bp)
 
-# Fetch latest events at app startup (dev convenience only)
-from utils.event_scraper import CampusEventScraper
-import sqlite3
-def should_scrape_events():
-    try:
-        conn = sqlite3.connect("db/campusconnect.db")
-        cursor = conn.cursor()
-        cursor.execute("SELECT COUNT(*) FROM external_events")
-        count = cursor.fetchone()[0]
-        conn.close()
-        return count == 0
-    except Exception as e:
-        print(f"Skipping scraping: {e}")
-        return False
-
-if should_scrape_events():
-    scraper = CampusEventScraper("https://www.adrian.edu/calendar", db_path="db/campusconnect.db")
-    scraper.run()
-
 if __name__ == "__main__":
     app.run(debug=True)

@@ -10,12 +10,13 @@
         <h1>Campus Events</h1>
     </header>
     <main>
+        <h2>Sample Internal Events</h2>
         <ul>
             {% for title, location, date in internal_events %}
                 <li><strong>{{ title }}</strong> — {{ date }} @ {{ location }}<br>
             {% endfor %}
         </ul>
-        <!-- Added in for final project -->
+        <!-- Added in for your scraped data -->
         <h2>Scraped Campus Events</h2>
         <ul>
             {% for title, location, date, description in external_events %}

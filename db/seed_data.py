@@ -24,19 +24,17 @@ c.execute('''CREATE TABLE IF NOT EXISTS events (
     date TEXT
 )''')
 
-c.execute('''CREATE TABLE IF NOT EXISTS external_events (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT,
-    date TEXT,
-    location TEXT,
-    description TEXT
-)''')
+# Create Users Seed Data
+c.execute("INSERT INTO users (name, preferences) VALUES (?, ?)", ("Alice", "Aly"))
+c.execute("INSERT INTO users (name, preferences) VALUES (?, ?)", ("Bob", "art, Bobby"))
+c.execute("INSERT INTO users (name, preferences) VALUES (?, ?)", ("Charlie", "Chaz"))
 
-# Users
+# Internal Events Seed Data
 c.execute("INSERT INTO events (title, location, date) VALUES (?, ?, ?)", ("Music Night", "Student Center", "2025-04-05"))
-
-# Internal events
 c.execute("INSERT INTO events (title, location, date) VALUES (?, ?, ?)", ("Hackathon", "Library", "2025-04-01"))
+c.execute("INSERT INTO events (title, location, date) VALUES (?, ?, ?)", ("Art Exhibition", "Gallery", "2025-04-10"))
+c.execute("SELECT title, location, date FROM events")
+
 
 conn.commit()
 conn.close()
