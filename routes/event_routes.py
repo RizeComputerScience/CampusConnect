@@ -19,5 +19,10 @@ def events():
     # Update the extenal_events variable with the data you want to display
     external_events = []
 
+
+
+
+    
+
     conn.close()
     return render_template("events.html", internal_events=internal_events, external_events=external_events)
